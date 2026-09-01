@@ -13,7 +13,6 @@ import (
 	"sync"
 	"time"
 
-	"github.com/blutspende/libs-pagination"
 	"github.com/google/uuid"
 	"github.com/redis/go-redis/v9"
 	"github.com/rs/zerolog/log"
@@ -51,8 +50,6 @@ type RedisCache interface {
 	// Key handling
 	KeyForAll() string
 	KeyForOne(id uuid.UUID) string
-	KeyForPage(page pagination.PaginatedQuery) string
-	KeyForCustomPage(page pagination.PaginatedQuery, customKey string) string
 	KeyForCustom(customKey string) string
 	KeyForValuedCustom(name string, values ...string) string
 	KeyForNotFound() string
@@ -718,12 +715,7 @@ func (c *redisCache) KeyForAll() string {
 func (c *redisCache) KeyForOne(id uuid.UUID) string {
 	return fmt.Sprintf("%s:ONE:%s", c.name, GuidToKey(id))
 }
-func (c *redisCache) KeyForPage(page pagination.PaginatedQuery) string {
-	return fmt.Sprintf("%s:PAGE:%d|%d|%s|%s", c.name, page.PageSize, page.Page, page.Direction, page.Sort)
-}
-func (c *redisCache) KeyForCustomPage(page pagination.PaginatedQuery, customKey string) string {
-	return fmt.Sprintf("%s:%s", c.KeyForPage(page), customKey)
-}
+
 func (c *redisCache) KeyForCustom(customKey string) string {
 	return fmt.Sprintf("%s:%s", c.name, customKey)
 }

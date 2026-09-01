@@ -3,7 +3,6 @@ module github.com/blutspende/libs-cache
 go 1.26.6
 
 require (
-	github.com/blutspende/libs-pagination v1.0.1
 	github.com/google/uuid v1.6.0
 	github.com/redis/go-redis/v9 v9.22.0
 	github.com/rs/zerolog v1.35.1

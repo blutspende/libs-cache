@@ -84,8 +84,6 @@ To ensure consistent key generation, RedisCache provides functions to generate k
 ```go
 KeyForAll() string
 KeyForOne(id uuid.UUID) string
-KeyForPage(page pagination.Pagination) string
-KeyForCustomPage(page pagination.Pagination, customKey string) string
 KeyForCustom(customKey string) string
 KeyForValuedCustom(name string, values ...string) string
 KeyForNotFound() string
