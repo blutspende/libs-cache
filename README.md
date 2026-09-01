@@ -2,7 +2,7 @@
 Contains the `RedisCache` class for easy interaction with Redis. It is a fully integrated standalone cache solution tailored for bloodlab usage.
 
 ###### Install
-`go get github.com/blutspende/libs/cache`
+`go get github.com/blutspende/libs-cache`
 
 ## New
 A new instance can be created calling `NewRedisCache`:

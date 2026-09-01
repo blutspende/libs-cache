@@ -13,7 +13,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/blutspende/bloodlab-common/pagination"
+	"github.com/blutspende/libs-pagination"
 	"github.com/google/uuid"
 	"github.com/redis/go-redis/v9"
 	"github.com/rs/zerolog/log"
